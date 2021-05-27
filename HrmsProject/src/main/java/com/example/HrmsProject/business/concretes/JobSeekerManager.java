@@ -66,6 +66,13 @@ public class JobSeekerManager implements JobSeekerService {
 			
 			return new ErrorResult("Aynı T.C. kimlik numarası birden fazla kullanılamaz");
 		}
+		
+		else if (isCheckFieldsEmpty(jobSeeker)==false) {
+			
+			return new ErrorResult("Hiçbir Alan Boş Bırakılamaz!!");
+			
+		}
+		
 		else 
 		{
 			
@@ -110,6 +117,14 @@ public class JobSeekerManager implements JobSeekerService {
 			return true;
 		}
 		return false;
+	}
+	public boolean isCheckFieldsEmpty(Jobseeker jobSeeker) {
+		if (jobSeeker.getEmail()==null && jobSeeker.getPassword()==null && jobSeeker.getVerifyPassword()==null) {
+			
+			return false;
+		}
+		return true;
+		
 	}
 	
 	
