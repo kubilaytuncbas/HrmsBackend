@@ -1,6 +1,4 @@
 package com.example.HrmsProject.entities.concretes;
-
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,27 +14,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name="job_positions")
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "cities")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
-public class JobPosition {
+public class City {
 
 	@Id
 	@GeneratedValue
-	@Column(name="id")
+	@Column(name = "id")
 	private int id;
 	
-	@Column(name="job_title")
-	private String jobTitle;
+	@Column(name = "name")
+	private String name;
 	
-	@Column(name= "created_at", columnDefinition = "Date default CURRENT_DATE")
-	private LocalDate createdDate = LocalDate.now();
-	
-	@OneToMany(mappedBy = "jobPosition")
-	private List<JobAdvertisement> jobAdvertisements; 
-	
-		
+	@OneToMany(mappedBy = "city")
+	private List<JobAdvertisement> jobAdvertisement;
 }

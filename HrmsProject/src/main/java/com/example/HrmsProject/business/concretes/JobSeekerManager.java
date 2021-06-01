@@ -16,6 +16,8 @@ import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.dataAccess.abstracts.JobSeekerDao;
 import com.example.HrmsProject.entities.concretes.Jobseeker;
 
+import net.bytebuddy.asm.Advice.This;
+
 
 @Service
 public class JobSeekerManager implements JobSeekerService {
@@ -126,6 +128,13 @@ public class JobSeekerManager implements JobSeekerService {
 		return true;
 		
 	}
+
+	@Override
+	public DataResult<List<Jobseeker>> findAllByNationalityId(String nationalityId) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<Jobseeker>>(this.jobSeekerDao.findAllByNationalityId(nationalityId));
+	}
+	
 	
 	
 
