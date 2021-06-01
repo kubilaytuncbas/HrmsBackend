@@ -53,4 +53,22 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAll(),"liste başarıyla getirildi");
 	}
 
+	@Override
+	public DataResult<List<JobAdvertisement>> findAllOpenJobAdvertisement() {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAllOpenJobAdvertisement());
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> findAllByOrderByPublishedAtDesc() {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAllByOrderByPublishedAtDesc());
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> findAllByJobAdvertisementByEmployer(int id) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAllByJobAdvertisementByEmployer(id));
+	}
+
 }
