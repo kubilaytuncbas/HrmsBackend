@@ -55,16 +55,16 @@ public class JobAdvertisement {
 	@Column(name = "published_at")
 	private LocalDate publishedAt;
 	
-	@Column(name = "created_at")
+	@Column(name = "created_at",columnDefinition = "Date defult CURRENT_DATE")
 	private LocalDate createdAt;
 	
 	@Column(name = "is_open")
 	private boolean isOpen;
 	
-	@Column(name = "is_active")
+	@Column(name = "is_active", columnDefinition = "boolean default true")
 	private boolean isActive;
 	
-	@Column(name = "is_deleted")
+	@Column(name = "is_deleted", columnDefinition = "boolean default false")
 	private boolean isDeleted;
 	
 	@ManyToOne
