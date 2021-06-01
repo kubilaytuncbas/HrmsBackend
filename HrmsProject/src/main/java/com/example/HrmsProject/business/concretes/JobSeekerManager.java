@@ -101,7 +101,7 @@ public class JobSeekerManager implements JobSeekerService {
 	@Override
 	public DataResult<List<Jobseeker>> getAll() {
 		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<Jobseeker>>(jobSeekerDao.findAll());
+		return new SuccessDataResult<List<Jobseeker>>(jobSeekerDao.findAll(),"Liste Başarıyla Getirildi");
 	}
 	
 	
@@ -132,7 +132,7 @@ public class JobSeekerManager implements JobSeekerService {
 	@Override
 	public DataResult<List<Jobseeker>> findAllByNationalityId(String nationalityId) {
 		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<Jobseeker>>(this.jobSeekerDao.findAllByNationalityId(nationalityId));
+		return new SuccessDataResult<List<Jobseeker>>(jobSeekerDao.findAllByNationalityId(nationalityId));
 	}
 	
 	

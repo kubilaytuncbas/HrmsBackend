@@ -3,6 +3,7 @@ package com.example.HrmsProject.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,12 +27,13 @@ public class JobAdvertisementsController {
 		this.jobAdvertisementService = jobAdvertisementService;
 	}
 	
-	public DataResult<List<JobAdvertisement>> getAll(){
-		return this.jobAdvertisementService.getAll();
-	}
 	
-	@PostMapping(name="/add")
+	@PostMapping("/add")
 	public Result add(@RequestBody JobAdvertisement jobAdvertisement) {
 		return jobAdvertisementService.add(jobAdvertisement);
+	}
+	@GetMapping("/getAll")
+	public DataResult<List<JobAdvertisement>> getall(){
+		return jobAdvertisementService.getAll();
 	}
 }

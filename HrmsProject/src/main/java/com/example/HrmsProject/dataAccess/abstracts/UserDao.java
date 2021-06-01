@@ -8,4 +8,6 @@ import com.example.HrmsProject.entities.concretes.User;
 
 public interface UserDao extends JpaRepository<User, Integer> {
 
+	
+	User findAllUserByEmail(String email);
 }

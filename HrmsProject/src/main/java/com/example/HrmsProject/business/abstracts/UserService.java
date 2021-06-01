@@ -12,5 +12,5 @@ public interface UserService {
 	Result add(User user);
 	Result update(User user);
 	Result delete(User user);
-
+	DataResult<User> findAllUserByEmail(String email);
 }

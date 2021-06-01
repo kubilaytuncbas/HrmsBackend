@@ -1,13 +1,13 @@
 package com.example.HrmsProject.business.abstracts;
 
-import com.example.HrmsProject.entities.concretes.Employee;
+import com.example.HrmsProject.core.utilities.results.Result;
+import com.example.HrmsProject.entities.concretes.Employer;
 import com.example.HrmsProject.entities.concretes.Jobseeker;
-import com.sun.net.httpserver.Authenticator.Result;
 
 public interface AuthService {
 	
 	Result registerWithJobSeeker(Jobseeker jobSeeker);
-	Result registerWithEmployee(Employee employee);
+	Result registerWithEmployer(Employer employer);
 	
 
 }

@@ -13,6 +13,8 @@ import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.dataAccess.abstracts.UserDao;
 import com.example.HrmsProject.entities.concretes.User;
 
+import net.bytebuddy.asm.Advice.This;
+
 
 @Service
 public class UserManager implements UserService {
@@ -52,6 +54,15 @@ public class UserManager implements UserService {
 	public Result delete(User user) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+
+	@Override
+	public DataResult<User> findAllUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<User>(this.userDao.findAllUserByEmail(email));
 	}
 
 }
