@@ -9,6 +9,7 @@ import com.example.HrmsProject.entities.concretes.Cv;
 public interface CvService {
 	Result add(Cv cv);
 	Result update(Cv cv);
-	Result delete(Cv cv);
+	Result delete(int id);
 	DataResult<List<Cv>> getAll();
+	DataResult<Cv> getById(int id);
 }

@@ -1,6 +1,8 @@
 package com.example.HrmsProject.business.concretes;
 
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +22,12 @@ import com.example.HrmsProject.entities.concretes.Jobseeker;
 import com.example.HrmsProject.entities.concretes.User;
 import com.example.HrmsProject.entities.concretes.VerificationCode;
 
+
 @Service
-public class AuthManager implements AuthService {
+public class AuthManager implements AuthService {	
 	
 	private UserService userService;
+	
 	private JobSeekerService jobSeekerService;
 	private ValidationService validationService;
 	private EmployerService employerService;
@@ -43,7 +47,7 @@ public class AuthManager implements AuthService {
 		this.verificationService = verificationService;
 	}
 
-	@Autowired
+	
 	
 
 
@@ -73,6 +77,8 @@ public class AuthManager implements AuthService {
 		}
 		else {
 			jobSeekerService.add(jobSeeker);
+			String code = verificationService.sendCode();
+			verificationCodeRecord(code, jobSeeker.getId(), jobSeeker.getEmail());
 			return new SuccessResult("Kişi başarıyla oluşturuldu.");
 		}
 		
@@ -93,7 +99,7 @@ public class AuthManager implements AuthService {
 			return new ErrorResult("Şifreleriniz birbirleriyle uyumuşmamakta, lütfen kontrol ediniz!!");
 		}
 		else {
-			userService.add(employer);
+			employerService.add(employer);
 			String code = verificationService.sendCode();
 			verificationCodeRecord(code, employer.getId(), employer.getEmail());
 			return new SuccessResult("Kayıt Başarıyla Oluşturuldu.");
@@ -159,7 +165,7 @@ public class AuthManager implements AuthService {
 	}
 	private void verificationCodeRecord(String code, int id, String email) {
 			
-			VerificationCode verificationCode = new VerificationCode(id, id, code, false, null);
+			VerificationCode verificationCode = new VerificationCode(id,id, code,false, LocalDate.now());
 			this.verificationCodeService.add(verificationCode);
 			System.out.println("Verification code has been sent to " + email );
 		

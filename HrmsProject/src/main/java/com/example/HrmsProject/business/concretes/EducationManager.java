@@ -45,4 +45,17 @@ public class EducationManager implements EducationService {
 		return null;
 	}
 
+
+	@Override
+	public DataResult<Education> getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<Education>> getAllByCv_idOrderByEndTimeDesc(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

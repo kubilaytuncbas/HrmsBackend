@@ -46,4 +46,10 @@ public class ExperienceManager implements ExperienceService {
 		return null;
 	}
 
+	@Override
+	public DataResult<List<Experience>> getAllByCv_idOrderByEndAtDesc(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

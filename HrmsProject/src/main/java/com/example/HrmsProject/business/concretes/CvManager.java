@@ -35,13 +35,19 @@ public class CvManager implements CvService {
 	}
 
 	@Override
-	public Result delete(Cv cv) {
+	public Result delete(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public DataResult<List<Cv>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<Cv> getById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

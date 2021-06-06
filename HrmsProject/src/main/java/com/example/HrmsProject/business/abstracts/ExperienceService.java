@@ -11,4 +11,5 @@ public interface ExperienceService {
 	Result update(Experience experience);
 	Result delete(Experience experience);
 	DataResult<List<Experience>> getAll();
+	DataResult<List<Experience>> getAllByCv_idOrderByEndAtDesc(int id);
 }
