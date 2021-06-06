@@ -8,14 +8,17 @@ import com.example.HrmsProject.business.abstracts.AuthService;
 import com.example.HrmsProject.business.abstracts.EmployerService;
 import com.example.HrmsProject.business.abstracts.JobSeekerService;
 import com.example.HrmsProject.business.abstracts.UserService;
+import com.example.HrmsProject.business.abstracts.VerificationCodeService;
 import com.example.HrmsProject.core.EmailRegex;
 import com.example.HrmsProject.core.utilities.adapters.ValidationService;
 import com.example.HrmsProject.core.utilities.results.ErrorResult;
 import com.example.HrmsProject.core.utilities.results.Result;
 import com.example.HrmsProject.core.utilities.results.SuccessResult;
+import com.example.HrmsProject.core.verification.VerificationService;
 import com.example.HrmsProject.entities.concretes.Employer;
 import com.example.HrmsProject.entities.concretes.Jobseeker;
 import com.example.HrmsProject.entities.concretes.User;
+import com.example.HrmsProject.entities.concretes.VerificationCode;
 
 @Service
 public class AuthManager implements AuthService {
@@ -24,16 +27,24 @@ public class AuthManager implements AuthService {
 	private JobSeekerService jobSeekerService;
 	private ValidationService validationService;
 	private EmployerService employerService;
+	private VerificationCodeService verificationCodeService;
+	private VerificationService verificationService;
 	
 	@Autowired
 	public AuthManager(UserService userService, JobSeekerService jobSeekerService, ValidationService validationService,
-			EmployerService employerService) {
+			EmployerService employerService, VerificationCodeService verificationCodeService,
+			VerificationService verificationService) {
 		super();
 		this.userService = userService;
 		this.jobSeekerService = jobSeekerService;
 		this.validationService = validationService;
 		this.employerService = employerService;
+		this.verificationCodeService = verificationCodeService;
+		this.verificationService = verificationService;
 	}
+
+	@Autowired
+	
 
 
 	@Override
@@ -83,6 +94,8 @@ public class AuthManager implements AuthService {
 		}
 		else {
 			userService.add(employer);
+			String code = verificationService.sendCode();
+			verificationCodeRecord(code, employer.getId(), employer.getEmail());
 			return new SuccessResult("Kayıt Başarıyla Oluşturuldu.");
 		}
 		
@@ -144,6 +157,13 @@ public class AuthManager implements AuthService {
 		}
 		return false;
 	}
+	private void verificationCodeRecord(String code, int id, String email) {
+			
+			VerificationCode verificationCode = new VerificationCode(id, id, code, false, null);
+			this.verificationCodeService.add(verificationCode);
+			System.out.println("Verification code has been sent to " + email );
+		
+		}
 	private boolean CheckFieldsEmpty(Employer employer) {
 		if (employer.getEmail()==null &&employer.getPassword()==null && employer.getPhoneNumber()==null && employer.getVerifyPassword()==null && employer.getWebsite()==null) {
 			
