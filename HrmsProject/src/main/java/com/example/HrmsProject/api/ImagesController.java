@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.HrmsProject.business.abstracts.ImageService;
 import com.example.HrmsProject.core.utilities.results.Result;
+import com.example.HrmsProject.entities.concretes.Image;
 
 @RestController
 @RequestMapping("/api/images")
@@ -24,7 +25,8 @@ public class ImagesController {
 	}
 	@PostMapping("/add")
 	public Result add(@RequestBody MultipartFile imageFile,@RequestParam int id) {
-		return this.imageService.add(imageFile, id);
+		Image image=new Image();
+		return this.imageService.add(image, imageFile);
 	}
 
 }
