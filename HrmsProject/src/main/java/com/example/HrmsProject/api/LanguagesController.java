@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.HrmsProject.business.abstracts.LanguageService;
@@ -37,5 +38,13 @@ public class LanguagesController {
 	@PostMapping("/update")
 	public Result update(@RequestBody Language language) {
 		return languageService.update(language);
+	}
+	@PostMapping("/delete")
+	public Result delete(@RequestParam int id) {
+		return this.languageService.delete(id);
+	}
+	@GetMapping("/getAllByCv_id")
+	DataResult<List<Language>> getAllByCv_id(int id){
+		return this.languageService.getAllByCv_id(id);
 	}
 }

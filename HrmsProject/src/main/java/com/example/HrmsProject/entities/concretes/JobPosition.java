@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -37,7 +38,13 @@ public class JobPosition {
 	private LocalDate createdDate = LocalDate.now();
 	
 	@OneToMany(mappedBy = "jobPosition")
+	@JsonIgnore
 	private List<JobAdvertisement> jobAdvertisements; 
 	
+	public JobPosition(String jobTitle, List<JobAdvertisement> jobAdvertisements) {
+		super();
+		this.jobTitle = jobTitle;
+		this.jobAdvertisements = jobAdvertisements;
+	} 
 		
 }

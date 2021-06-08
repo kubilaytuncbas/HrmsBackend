@@ -13,7 +13,6 @@ import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.dataAccess.abstracts.LanguageDao;
 import com.example.HrmsProject.entities.concretes.Language;
 
-import net.bytebuddy.asm.Advice.This;
 @Service
 public class LanguageManager implements LanguageService {
 
@@ -38,8 +37,8 @@ public class LanguageManager implements LanguageService {
 	}
 
 	@Override
-	public Result delete(Language language) {
-		this.languageDao.delete(language);
+	public Result delete(int id) {
+		this.languageDao.deleteById(id);
 		return new SuccessResult("Başarıyla silindi");
 	}
 

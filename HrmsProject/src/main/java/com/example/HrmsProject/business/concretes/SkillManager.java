@@ -37,8 +37,8 @@ public class SkillManager implements SkillService {
 	}
 
 	@Override
-	public Result delete(Skill skill) {
-		this.skillDao.delete(skill);
+	public Result delete(int id) {
+		this.skillDao.deleteById(id);
 		return new SuccessResult("Başarıyla silindi");
 	}
 

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.HrmsProject.business.abstracts.JobPositionService;
 import com.example.HrmsProject.core.utilities.results.DataResult;
-import com.example.HrmsProject.core.utilities.results.ErrorDataResult;
 import com.example.HrmsProject.core.utilities.results.ErrorResult;
 import com.example.HrmsProject.core.utilities.results.Result;
 import com.example.HrmsProject.core.utilities.results.SuccessDataResult;

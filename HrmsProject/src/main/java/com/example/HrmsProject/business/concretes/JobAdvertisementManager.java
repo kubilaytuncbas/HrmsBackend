@@ -13,7 +13,6 @@ import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.dataAccess.abstracts.JobAdvertisementDao;
 import com.example.HrmsProject.entities.concretes.JobAdvertisement;
 
-import net.bytebuddy.asm.Advice.This;
 
 @Service
 public class JobAdvertisementManager implements JobAdvertisementService{
@@ -42,15 +41,16 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 	}
 
 	@Override
-	public Result delete(JobAdvertisement jobAdvertisement) {
+	public Result delete(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		this.jobAdvertisementDao.deleteById(id);
+		return new SuccessResult();
 	}
 
 	@Override
 	public DataResult<List<JobAdvertisement>> getAll() {
 		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAll(),"liste başarıyla getirildi");
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAll());
 	}
 
 	@Override

@@ -39,6 +39,7 @@ public class ImageManager implements ImageService {
 	@Override
 	public Result add(Image image, MultipartFile imageFile) {
 		// TODO Auto-generated method stub
+		@SuppressWarnings("unchecked")
 		Map<String,String> uploadImage=this.cloudinaryService.uploadImageFile(imageFile).getData();	
 		String url= uploadImage.get("url");
 		image.setImageUrl(url);

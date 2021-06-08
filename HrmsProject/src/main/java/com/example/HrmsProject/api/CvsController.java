@@ -13,7 +13,7 @@ import com.example.HrmsProject.business.abstracts.CvService;
 import com.example.HrmsProject.core.utilities.results.DataResult;
 import com.example.HrmsProject.core.utilities.results.Result;
 import com.example.HrmsProject.entities.concretes.Cv;
-import com.example.HrmsProject.entities.concretes.JobPosition;
+import com.example.HrmsProject.entities.dtos.CvDto;
 
 @RestController
 @RequestMapping("/api/cvs")
@@ -45,6 +45,16 @@ public class CvsController {
 		
 		return cvService.delete(id);
 	}
+	
+	@GetMapping("/getById")
+	DataResult<Cv> getById(int id){
+		return cvService.getById(id);
+	}
+	@GetMapping("/getCvById")
+	DataResult<CvDto> getCvById(int id){
+		return cvService.getCvById(id);
+	}
+	
 	
 	
 }

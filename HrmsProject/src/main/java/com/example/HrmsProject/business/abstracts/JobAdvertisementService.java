@@ -11,7 +11,7 @@ public interface JobAdvertisementService {
 	
 	Result add(JobAdvertisement jobAdvertisement);
 	Result update(JobAdvertisement jobAdvertisement);
-	Result delete(JobAdvertisement jobAdvertisement);
+	Result delete(int id);
 	DataResult<List<JobAdvertisement>> getAll();
 	
 	DataResult<List<JobAdvertisement>> findAllOpenJobAdvertisement();

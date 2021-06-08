@@ -11,8 +11,10 @@ public interface JobSeekerService {
 	
 	Result add(Jobseeker jobSeeker);
 	Result update(Jobseeker jobSeeker);
-	Result delete(Jobseeker jobSeeker);
+	Result delete(int id);
 	DataResult<List<Jobseeker>> getAll();
 	DataResult<List<Jobseeker>> findAllByNationalityId(String nationalityId);
+	DataResult<Jobseeker> getById(int id);
+	
 
 }

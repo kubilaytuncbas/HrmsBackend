@@ -9,7 +9,7 @@ import com.example.HrmsProject.entities.concretes.Language;
 public interface LanguageService {
 	Result add(Language language);
 	Result update(Language language);
-	Result delete(Language language);
+	Result delete(int id);
 	DataResult<List<Language>> getAll();
 	DataResult<List<Language>> getAllByCv_id(int id);
 	

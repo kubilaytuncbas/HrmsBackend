@@ -37,8 +37,8 @@ public class ExperienceManager implements ExperienceService {
 	}
 
 	@Override
-	public Result delete(Experience experience) {
-		this.experienceDao.delete(experience);
+	public Result delete(int id) {
+		this.experienceDao.deleteById(id);
 		return new SuccessResult("Başarıyla Silindi");
 	}
 

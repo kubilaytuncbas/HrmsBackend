@@ -13,7 +13,7 @@ import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.dataAccess.abstracts.EducationDao;
 import com.example.HrmsProject.entities.concretes.Education;
 
-import net.bytebuddy.asm.Advice.This;
+
 @Service
 public class EducationManager implements EducationService {
 
@@ -38,8 +38,8 @@ public class EducationManager implements EducationService {
 	}
 
 	@Override
-	public Result delete(Education education) {
-		this.educationDao.delete(education);
+	public Result delete(int id) {
+		this.educationDao.deleteById(id);
 		return new SuccessResult("Başarıyla silindi.");
 	}
 

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.HrmsProject.business.abstracts.SkillService;
 import com.example.HrmsProject.core.utilities.results.DataResult;
 import com.example.HrmsProject.core.utilities.results.Result;
-import com.example.HrmsProject.entities.concretes.Cv;
 import com.example.HrmsProject.entities.concretes.Skill;
 
 @RestController
@@ -37,6 +36,11 @@ public class SkillsController {
 	@PostMapping("/update")
 	public Result update(@RequestBody Skill skill) {
 		return skillService.update(skill);
+	}
+	@GetMapping("/getAllByCv_id")
+	DataResult<List<Skill>> getAllByCv_id(int id){
+		return this.getAllByCv_id(id);
+		
 	}
 
 }

@@ -13,7 +13,6 @@ import com.example.HrmsProject.business.abstracts.EmployerService;
 import com.example.HrmsProject.core.utilities.results.DataResult;
 import com.example.HrmsProject.core.utilities.results.Result;
 import com.example.HrmsProject.entities.concretes.Employer;
-import com.example.HrmsProject.entities.concretes.JobPosition;
 
 @RestController
 @RequestMapping("/api/employers")

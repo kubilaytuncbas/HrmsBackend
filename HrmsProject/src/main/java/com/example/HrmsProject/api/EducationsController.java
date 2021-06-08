@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.HrmsProject.business.abstracts.EducationService;
@@ -38,9 +39,17 @@ public class EducationsController {
 	public Result update(@RequestBody Education education) {
 		return educationService.update(education);
 	}
+	@PostMapping("/delete")
+	public Result delete(@RequestParam int id) {
+		return educationService.delete(id);
+	}
 	@GetMapping("/getAllByCv_idOrderByEndTimeDesc")
 	public DataResult<List<Education>> getAllByCv_idOrderByEndTimeDesc(int id){
 		return this.educationService.getAllByCv_idOrderByEndTimeDesc(id);
+	}
+	@GetMapping("/getAllByCv_id")
+	DataResult<List<Education>> getAllByCv_id(int id){
+		return this.educationService.getAllByCv_id(id);
 	}
 	
 	

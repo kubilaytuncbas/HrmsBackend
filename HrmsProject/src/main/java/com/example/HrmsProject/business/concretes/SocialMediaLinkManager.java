@@ -37,8 +37,8 @@ public class SocialMediaLinkManager implements SocialMediaLinkService {
 	}
 
 	@Override
-	public Result delete(SocialMediaLink socialMediaLink) {
-		this.socialMediaLinkDao.delete(socialMediaLink);
+	public Result delete(int id) {
+		this.socialMediaLinkDao.deleteById(id);
 		return new SuccessResult("Başarıyla silindi.");
 	}
 

@@ -94,7 +94,7 @@ public class CvManager implements CvService {
 		cvDto.coverLetters=this.coverLetterService.getAllByCv_id(id).getData();
 		cvDto.skills=this.skillService.getAllByCv_id(id).getData();
 		cvDto.socialMediaLinks=this.socialMediaLinkService.getAllByCv_id(id).getData();
-		cvDto.jobseeker.getId();
+		cvDto.jobseeker=this.jobSeekerService.getById(id).getData();
 		return new SuccessDataResult<CvDto>(cvDto);
 	}
 

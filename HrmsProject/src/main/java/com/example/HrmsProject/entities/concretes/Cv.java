@@ -72,6 +72,7 @@ public class Cv {
 	@OneToMany(mappedBy ="cv")
 	private List<SocialMediaLink> socialMediaLinks;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "cv",cascade = CascadeType.ALL)
 	private Image image;
 

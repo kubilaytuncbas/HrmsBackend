@@ -29,8 +29,8 @@ public class Image {
 	@Column(name="image_url")
 	private String imageUrl;
 	
-	@Column(name="created_at")
-	private LocalDate createdAt;
+	@Column(name="created_at",columnDefinition = "Date defult CURRENT_DATE")
+	private LocalDate createdAt= LocalDate.now();
 	
 	@OneToOne
 	@JoinColumn(name="cv_id")

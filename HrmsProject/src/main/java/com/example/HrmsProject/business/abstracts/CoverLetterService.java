@@ -9,7 +9,7 @@ import com.example.HrmsProject.entities.concretes.CoverLetter;
 public interface CoverLetterService {
 	Result add(CoverLetter coverLetter);
 	Result update(CoverLetter coverLetter);
-	Result delete(CoverLetter coverLetter);
+	Result delete(int id);
 	DataResult<List<CoverLetter>> getAll();
 	DataResult<List<CoverLetter>> getAllByCv_id(int id);
 

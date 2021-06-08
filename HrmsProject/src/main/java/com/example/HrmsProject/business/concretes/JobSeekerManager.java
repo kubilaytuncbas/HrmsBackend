@@ -16,7 +16,6 @@ import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.dataAccess.abstracts.JobSeekerDao;
 import com.example.HrmsProject.entities.concretes.Jobseeker;
 
-import net.bytebuddy.asm.Advice.This;
 
 
 @Service
@@ -93,9 +92,10 @@ public class JobSeekerManager implements JobSeekerService {
 	}
 
 	@Override
-	public Result delete(Jobseeker jobSeeker) {
+	public Result delete(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		this.jobSeekerDao.deleteById(id);
+		return new SuccessResult();
 	}
 
 	@Override
@@ -133,6 +133,11 @@ public class JobSeekerManager implements JobSeekerService {
 	public DataResult<List<Jobseeker>> findAllByNationalityId(String nationalityId) {
 		// TODO Auto-generated method stub
 		return new SuccessDataResult<List<Jobseeker>>(jobSeekerDao.findAllByNationalityId(nationalityId));
+	}
+
+	@Override
+	public DataResult<Jobseeker> getById(int id) {
+		return new SuccessDataResult<Jobseeker>(this.jobSeekerDao.getById(id), "Başarıyla Getirildi.");
 	}
 	
 	
