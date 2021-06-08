@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.HrmsProject.business.abstracts.ExperienceService;
 import com.example.HrmsProject.core.utilities.results.DataResult;
 import com.example.HrmsProject.core.utilities.results.Result;
+import com.example.HrmsProject.core.utilities.results.SuccessDataResult;
+import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.dataAccess.abstracts.ExperienceDao;
 import com.example.HrmsProject.entities.concretes.Experience;
 
@@ -24,32 +26,35 @@ public class ExperienceManager implements ExperienceService {
 
 	@Override
 	public Result add(Experience experience) {
-		// TODO Auto-generated method stub
-		return null;
+		this.experienceDao.save(experience);
+		return new SuccessResult("Başarıyla eklendi");
 	}
 
 	@Override
 	public Result update(Experience experience) {
-		// TODO Auto-generated method stub
-		return null;
+		this.experienceDao.save(experience);
+		return new SuccessResult("Başarıyla Güncellendi");
 	}
 
 	@Override
 	public Result delete(Experience experience) {
-		// TODO Auto-generated method stub
-		return null;
+		this.experienceDao.delete(experience);
+		return new SuccessResult("Başarıyla Silindi");
 	}
 
 	@Override
 	public DataResult<List<Experience>> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<Experience>>(this.experienceDao.findAll(), "Başarıyla Listelendi");
 	}
 
 	@Override
 	public DataResult<List<Experience>> getAllByCv_idOrderByEndAtDesc(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<Experience>>(this.experienceDao.getAllByCv_idOrderByEndAtDesc(id), "Başarıyla Listelendi");
+	}
+
+	@Override
+	public DataResult<List<Experience>> getAllByCv_id(int id) {
+		return new SuccessDataResult<List<Experience>>(this.experienceDao.getAllByCv_id(id), "Başarıyla Listelendi");
 	}
 
 }

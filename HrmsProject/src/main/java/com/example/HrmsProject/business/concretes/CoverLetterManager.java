@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.HrmsProject.business.abstracts.CoverLetterService;
 import com.example.HrmsProject.core.utilities.results.DataResult;
 import com.example.HrmsProject.core.utilities.results.Result;
+import com.example.HrmsProject.core.utilities.results.SuccessDataResult;
+import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.dataAccess.abstracts.CoverLetterDao;
 import com.example.HrmsProject.entities.concretes.CoverLetter;
 @Service
@@ -23,26 +25,37 @@ public class CoverLetterManager implements CoverLetterService {
 
 	@Override
 	public Result add(CoverLetter coverLetter) {
-		// TODO Auto-generated method stub
-		return null;
+		this.coverLetterDao.save(coverLetter);
+		return new SuccessResult("Ön yazı başarıyla eklendi");
 	}
 
 	@Override
 	public Result update(CoverLetter coverLetter) {
-		// TODO Auto-generated method stub
-		return null;
+		this.coverLetterDao.save(coverLetter);
+		return new SuccessResult("Ön yazı başarıyla güncellendi");
+		
 	}
 
 	@Override
 	public Result delete(CoverLetter coverLetter) {
-		// TODO Auto-generated method stub
-		return null;
+		this.coverLetterDao.delete(coverLetter);
+		return new SuccessResult("Ön yazı başarıyla silindi");
 	}
 
 	@Override
 	public DataResult<List<CoverLetter>> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<CoverLetter>>(this.coverLetterDao.findAll(), "Ön yazılar başarıyla listelendi");
 	}
+
+	
+
+	@Override
+	public DataResult<List<CoverLetter>> getAllByCv_id(int id) {
+		return new SuccessDataResult<List<CoverLetter>>(this.coverLetterDao.getAllByCv_id(id),"Başarıyla getirildi");
+	}
+
+	
+
+	
 
 }

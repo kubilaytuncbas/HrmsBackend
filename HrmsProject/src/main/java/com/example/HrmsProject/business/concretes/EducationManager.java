@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 import com.example.HrmsProject.business.abstracts.EducationService;
 import com.example.HrmsProject.core.utilities.results.DataResult;
 import com.example.HrmsProject.core.utilities.results.Result;
+import com.example.HrmsProject.core.utilities.results.SuccessDataResult;
+import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.dataAccess.abstracts.EducationDao;
 import com.example.HrmsProject.entities.concretes.Education;
+
+import net.bytebuddy.asm.Advice.This;
 @Service
 public class EducationManager implements EducationService {
 
@@ -23,39 +27,37 @@ public class EducationManager implements EducationService {
 
 	@Override
 	public Result add(Education education) {
-		// TODO Auto-generated method stub
-		return null;
+		this.educationDao.save(education);
+		return new SuccessResult("Başarıyla eklendi");
 	}
 
 	@Override
 	public Result update(Education education) {
-		// TODO Auto-generated method stub
-		return null;
+		this.educationDao.save(education);
+		return new SuccessResult("Başarıyla güncellendi.");
 	}
 
 	@Override
 	public Result delete(Education education) {
-		// TODO Auto-generated method stub
-		return null;
+		this.educationDao.delete(education);
+		return new SuccessResult("Başarıyla silindi.");
 	}
 
 	@Override
 	public DataResult<List<Education>> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<Education>>(this.educationDao.findAll(), "başarıyla listelendi");
 	}
 
 
-	@Override
-	public DataResult<Education> getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public DataResult<List<Education>> getAllByCv_idOrderByEndTimeDesc(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<Education>>(this.educationDao.getAllByCv_idOrderByEndTimeDesc(id), "Başarıyla listelendi");
+	}
+
+	@Override
+	public DataResult<List<Education>> getAllByCv_id(int id) {
+		return new SuccessDataResult<List<Education>>(this.educationDao.getAllByCv_id(id), "Başarıyla listelendi");
 	}
 
 }

@@ -11,4 +11,6 @@ public interface LanguageService {
 	Result update(Language language);
 	Result delete(Language language);
 	DataResult<List<Language>> getAll();
+	DataResult<List<Language>> getAllByCv_id(int id);
+	
 }

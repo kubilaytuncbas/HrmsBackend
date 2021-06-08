@@ -42,10 +42,7 @@ public class EducationsController {
 	public DataResult<List<Education>> getAllByCv_idOrderByEndTimeDesc(int id){
 		return this.educationService.getAllByCv_idOrderByEndTimeDesc(id);
 	}
-	@GetMapping("/getById")
-	public DataResult<Education> getById(int id){
-		return this.educationService.getById(id);
-	}
+	
 	
 
 }

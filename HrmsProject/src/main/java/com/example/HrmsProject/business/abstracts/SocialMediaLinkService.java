@@ -11,5 +11,6 @@ public interface SocialMediaLinkService {
 	Result update(SocialMediaLink socialMediaLink);
 	Result delete(SocialMediaLink socialMediaLink);
 	DataResult<List<SocialMediaLink>> getAll();
+	DataResult<List<SocialMediaLink>> getAllByCv_id(int id);
 
 }

@@ -11,4 +11,5 @@ public interface SkillService {
 	Result update(Skill skill);
 	Result delete(Skill skill);
 	DataResult<List<Skill>> getAll();
+	DataResult<List<Skill>> getAllByCv_id(int id);
 }

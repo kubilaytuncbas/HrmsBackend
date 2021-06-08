@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 import com.example.HrmsProject.business.abstracts.LanguageService;
 import com.example.HrmsProject.core.utilities.results.DataResult;
 import com.example.HrmsProject.core.utilities.results.Result;
+import com.example.HrmsProject.core.utilities.results.SuccessDataResult;
+import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.dataAccess.abstracts.LanguageDao;
 import com.example.HrmsProject.entities.concretes.Language;
+
+import net.bytebuddy.asm.Advice.This;
 @Service
 public class LanguageManager implements LanguageService {
 
@@ -23,26 +27,31 @@ public class LanguageManager implements LanguageService {
 
 	@Override
 	public Result add(Language language) {
-		// TODO Auto-generated method stub
-		return null;
+		this.languageDao.save(language);
+		return new SuccessResult("Başarıyla getirildi");
 	}
 
 	@Override
 	public Result update(Language language) {
-		// TODO Auto-generated method stub
-		return null;
+		this.languageDao.save(language);
+		return new SuccessResult("Başarıyla güncellendi");
 	}
 
 	@Override
 	public Result delete(Language language) {
-		// TODO Auto-generated method stub
-		return null;
+		this.languageDao.delete(language);
+		return new SuccessResult("Başarıyla silindi");
 	}
 
 	@Override
 	public DataResult<List<Language>> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<Language>>(this.languageDao.findAll(), "Başarıyla Listelendi");
+	}
+
+
+	@Override
+	public DataResult<List<Language>> getAllByCv_id(int id) {
+		return new SuccessDataResult<List<Language>>(this.languageDao.getAllByCv_id(id), "Başarıyla listelendi");
 	}
 
 }
