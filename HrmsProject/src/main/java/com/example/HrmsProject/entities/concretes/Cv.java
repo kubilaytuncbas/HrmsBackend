@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -73,7 +74,7 @@ public class Cv {
 	private List<SocialMediaLink> socialMediaLinks;
 	
 	@JsonIgnore
-	@OneToOne(mappedBy = "cv",cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "cv")
 	private Image image;
 
 }

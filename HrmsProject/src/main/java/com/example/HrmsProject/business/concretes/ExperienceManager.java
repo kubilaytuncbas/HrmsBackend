@@ -49,12 +49,12 @@ public class ExperienceManager implements ExperienceService {
 
 	@Override
 	public DataResult<List<Experience>> getAllByCv_idOrderByEndAtDesc(int id) {
-		return new SuccessDataResult<List<Experience>>(this.experienceDao.getAllByCv_idOrderByEndAtDesc(id), "Başarıyla Listelendi");
+		return new SuccessDataResult<List<Experience>>(this.experienceDao.getAllByCv_idOrderByEndAtDesc(id));
 	}
 
 	@Override
 	public DataResult<List<Experience>> getAllByCv_id(int id) {
-		return new SuccessDataResult<List<Experience>>(this.experienceDao.getAllByCv_id(id), "Başarıyla Listelendi");
+		return new SuccessDataResult<List<Experience>>(this.experienceDao.getAllByCv_id(id));
 	}
 
 }

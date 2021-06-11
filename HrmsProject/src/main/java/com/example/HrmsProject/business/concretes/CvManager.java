@@ -81,11 +81,12 @@ public class CvManager implements CvService {
 
 	@Override
 	public DataResult<Cv> getById(int id) {
-		return new SuccessDataResult<Cv>(this.cvDao.getById(id),"Başarıyla Cv getirildi");
+		return new SuccessDataResult<Cv>(this.cvDao.getById(id));
 	}
 
 	@Override
 	public DataResult<CvDto> getCvById(int id) {
+		Cv cv=this.cvDao.getById(id);
 		CvDto cvDto=new CvDto();
 		cvDto.experiences=this.experienceService.getAllByCv_id(id).getData();
 		cvDto.image=this.imageService.getByCv_id(id).getData();

@@ -45,19 +45,19 @@ public class EducationManager implements EducationService {
 
 	@Override
 	public DataResult<List<Education>> getAll() {
-		return new SuccessDataResult<List<Education>>(this.educationDao.findAll(), "başarıyla listelendi");
+		return new SuccessDataResult<List<Education>>(this.educationDao.findAll());
 	}
 
 
 
 	@Override
 	public DataResult<List<Education>> getAllByCv_idOrderByEndTimeDesc(int id) {
-		return new SuccessDataResult<List<Education>>(this.educationDao.getAllByCv_idOrderByEndTimeDesc(id), "Başarıyla listelendi");
+		return new SuccessDataResult<List<Education>>(this.educationDao.getAllByCv_idOrderByEndTimeDesc(id));
 	}
 
 	@Override
 	public DataResult<List<Education>> getAllByCv_id(int id) {
-		return new SuccessDataResult<List<Education>>(this.educationDao.getAllByCv_id(id), "Başarıyla listelendi");
+		return new SuccessDataResult<List<Education>>(this.educationDao.getAllByCv_id(id));
 	}
 
 }

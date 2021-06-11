@@ -44,14 +44,14 @@ public class CoverLetterManager implements CoverLetterService {
 
 	@Override
 	public DataResult<List<CoverLetter>> getAll() {
-		return new SuccessDataResult<List<CoverLetter>>(this.coverLetterDao.findAll(), "Ön yazılar başarıyla listelendi");
+		return new SuccessDataResult<List<CoverLetter>>(this.coverLetterDao.findAll());
 	}
 
 	
 
 	@Override
 	public DataResult<List<CoverLetter>> getAllByCv_id(int id) {
-		return new SuccessDataResult<List<CoverLetter>>(this.coverLetterDao.getAllByCv_id(id),"Başarıyla getirildi");
+		return new SuccessDataResult<List<CoverLetter>>(this.coverLetterDao.getAllByCv_id(id));
 	}
 
 	

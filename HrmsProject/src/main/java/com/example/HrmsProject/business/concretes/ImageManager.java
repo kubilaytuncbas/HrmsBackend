@@ -42,7 +42,7 @@ public class ImageManager implements ImageService {
 		@SuppressWarnings("unchecked")
 		Map<String,String> uploadImage=this.cloudinaryService.uploadImageFile(imageFile).getData();	
 		String url= uploadImage.get("url");
-		image.setImageUrl(url);
+		image.setUrl(url);
 		this.imageDao.save(image);
 		return new SuccessResult("Resim başarıyla eklendi");
 	}
@@ -59,7 +59,7 @@ public class ImageManager implements ImageService {
 
 	@Override
 	public DataResult<Image> getByCv_id(int id) {
-		return new SuccessDataResult<Image>(this.imageDao.getByCv_id(id), "Başarıyla getirildi");
+		return new SuccessDataResult<Image>(this.imageDao.getByCv_id(id));
 	}
 
 	@Override

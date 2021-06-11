@@ -44,12 +44,12 @@ public class SocialMediaLinkManager implements SocialMediaLinkService {
 
 	@Override
 	public DataResult<List<SocialMediaLink>> getAll() {
-		return new SuccessDataResult<List<SocialMediaLink>>(this.socialMediaLinkDao.findAll(), "Başarıyla listelendi");
+		return new SuccessDataResult<List<SocialMediaLink>>(this.socialMediaLinkDao.findAll());
 	}
 
 	@Override
 	public DataResult<List<SocialMediaLink>> getAllByCv_id(int id) {
-		return new SuccessDataResult<List<SocialMediaLink>>(this.socialMediaLinkDao.getAllByCv_id(id), "Başarıyla listelendi");
+		return new SuccessDataResult<List<SocialMediaLink>>(this.socialMediaLinkDao.getAllByCv_id(id));
 	}
 
 }

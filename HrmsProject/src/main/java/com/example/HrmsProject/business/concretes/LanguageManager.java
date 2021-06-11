@@ -44,13 +44,13 @@ public class LanguageManager implements LanguageService {
 
 	@Override
 	public DataResult<List<Language>> getAll() {
-		return new SuccessDataResult<List<Language>>(this.languageDao.findAll(), "Başarıyla Listelendi");
+		return new SuccessDataResult<List<Language>>(this.languageDao.findAll());
 	}
 
 
 	@Override
 	public DataResult<List<Language>> getAllByCv_id(int id) {
-		return new SuccessDataResult<List<Language>>(this.languageDao.getAllByCv_id(id), "Başarıyla listelendi");
+		return new SuccessDataResult<List<Language>>(this.languageDao.getAllByCv_id(id));
 	}
 
 }

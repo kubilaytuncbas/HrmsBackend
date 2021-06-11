@@ -26,8 +26,8 @@ public class Image {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="image_url")
-	private String imageUrl;
+	@Column(name="url")
+	private String Url;
 	
 	@Column(name="created_at",columnDefinition = "Date defult CURRENT_DATE")
 	private LocalDate createdAt= LocalDate.now();

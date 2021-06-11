@@ -44,12 +44,12 @@ public class SkillManager implements SkillService {
 
 	@Override
 	public DataResult<List<Skill>> getAll() {
-		return new SuccessDataResult<List<Skill>>(this.skillDao.findAll(), "Başarıyla listelendi");
+		return new SuccessDataResult<List<Skill>>(this.skillDao.findAll());
 	}
 
 	@Override
 	public DataResult<List<Skill>> getAllByCv_id(int id) {
-		return new SuccessDataResult<List<Skill>>(this.skillDao.getAllByCv_id(id), "Başarıyla listelendi");
+		return new SuccessDataResult<List<Skill>>(this.skillDao.getAllByCv_id(id));
 	}
 
 }
