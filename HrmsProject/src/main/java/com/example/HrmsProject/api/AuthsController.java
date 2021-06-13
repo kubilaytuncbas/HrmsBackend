@@ -1,6 +1,7 @@
 package com.example.HrmsProject.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.example.HrmsProject.entities.concretes.Jobseeker;
 
 @RestController
 @RequestMapping("/api/auths")
+@CrossOrigin
 public class AuthsController {
 	private AuthService authService;
 	

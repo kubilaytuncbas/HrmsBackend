@@ -2,6 +2,7 @@ package com.example.HrmsProject.api;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import com.example.HrmsProject.entities.concretes.Skill;
 
 @RestController
 @RequestMapping("/api/skills")
+@CrossOrigin
 public class SkillsController {
 	private SkillService skillService;
 
