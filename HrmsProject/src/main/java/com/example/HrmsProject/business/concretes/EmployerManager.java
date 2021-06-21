@@ -62,7 +62,7 @@ public class EmployerManager implements EmployerService {
 	@Override
 	public DataResult<List<Employer>> getAll() {
 		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<Employer>>(employerDao.findAll(), "başarıyla listelendi");
+		return new SuccessDataResult<List<Employer>>(employerDao.findAll());
 	}
 	
 	public boolean checkPasswordAndVerifyPassword(Employer employer) 
@@ -81,6 +81,14 @@ public class EmployerManager implements EmployerService {
 		}
 		return true;
 		
+	}
+
+	@Override
+	public Result employerConfirm(int id, boolean isVerified) {
+		Employer tempValue=this.employerDao.findById(id).orElse(null);
+		tempValue.setVerified(isVerified);
+		this.employerDao.save(tempValue);
+		return new SuccessResult();
 	}
 	
 	

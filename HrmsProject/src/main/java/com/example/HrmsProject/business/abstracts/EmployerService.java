@@ -14,4 +14,5 @@ public interface EmployerService {
 	Result update(Employer employer);
 	Result delete(Employer employer);
 	DataResult<List<Employer>> getAll();
+	Result employerConfirm(int id, boolean isVerified);
 }

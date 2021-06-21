@@ -14,4 +14,5 @@ public interface EmployeeService {
 	Result add(Employee employee);
 	Result update(Employee employee);
 	Result delete(Employee employee);
+	Result employerConfirm(int id,boolean isVerified);
 }
