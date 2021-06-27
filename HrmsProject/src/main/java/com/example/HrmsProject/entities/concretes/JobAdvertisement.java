@@ -1,5 +1,6 @@
 package com.example.HrmsProject.entities.concretes;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,9 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -60,7 +63,7 @@ public class JobAdvertisement {
 	@Column(name = "created_at",columnDefinition = "Date defult CURRENT_DATE")
 	private LocalDate createdAt= LocalDate.now();
 	
-	@Column(name = "is_open")
+	@Column(name = "is_open", columnDefinition = "boolean default true")
 	private boolean isOpen;
 	
 	@Column(name = "is_active", columnDefinition = "boolean default true")
@@ -80,5 +83,17 @@ public class JobAdvertisement {
 	@ManyToOne
 	@JoinColumn(name = "city_id")
 	private City city;
+	
+	@ManyToOne
+	@JoinColumn(name = "working_type_id")
+	private WorkingType workingType;
+	
+	@ManyToOne
+	@JoinColumn(name = "working_time_id")
+	private WorkingTime workingTime;
+	
+	@OneToMany(mappedBy = "jobAdvertisement")
+	@JsonIgnore
+	private List<Favorite> favorites;
 
 }

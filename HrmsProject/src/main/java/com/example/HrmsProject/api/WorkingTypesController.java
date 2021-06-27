@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,9 +30,9 @@ public class WorkingTypesController {
 	}
 	
 	@PostMapping("/add")
-	public Result add(WorkingType workingType) {
-		this.workingTypeService.add(workingType);
-		return new SuccessResult();
+	public Result add(@RequestBody WorkingType workingType) {
+		return this.workingTypeService.add(workingType);
+		
 	}
 	@GetMapping("/getAll")
 	public DataResult<List<WorkingType>> getAll(){

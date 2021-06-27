@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.HrmsProject.business.abstracts.WorkingTimeService;
 import com.example.HrmsProject.core.utilities.results.DataResult;
 import com.example.HrmsProject.core.utilities.results.Result;
-import com.example.HrmsProject.core.utilities.results.SuccessDataResult;
 import com.example.HrmsProject.core.utilities.results.SuccessResult;
 import com.example.HrmsProject.entities.concretes.WorkingTime;
 
@@ -32,8 +31,8 @@ public class WorkingTimesController {
 	
 	@PostMapping("/add")
 	public Result add(@RequestBody WorkingTime workingTime) {
-		this.workingTimeService.add(workingTime);
-		return new SuccessResult();
+		return this.workingTimeService.add(workingTime);
+		
 	}
 	
 	@GetMapping("/getAll")

@@ -48,5 +48,9 @@ public class Jobseeker extends User{
 	@OneToMany(mappedBy = "jobseeker")
 	private List<Cv> cvs;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy="jobseeker")
+	private List<Favorite> favorites;
+	
 
 }
